@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARG game lv 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #02005e;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1, h2, h3, p {
+            color: #ffffff;
+        }
+
+        del {
+            color: red;
+        }
+
+        a, button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+        }
+
+        .message {
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+
+        .alert-message {
+            color: red;
+        }
+
+        .success-message {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <del>이거 원래 ARG처럼 하려다가 전혀 다른 게임이 됨ㅠ</del>
+        <h1>몸풀기 문제</h1>
+        <h2>앞으로 풀게될 문제들은 개발자도구들을 잘 활용해야 합니다.</h2>
+        <h2>연습으로 한 번 해봅시다.</h2>
+        <h3>1.F12 누르기</h3>
+        <h3>2.Console 클릭</h3>
+        <h3>3.console.log(answer); 작성!</h3>
+        <del>근데 그게 정답일까요?</del>
+        <p id="hintMessage">안녕요</p>
+        <a button href="https://nabuley.github.io/JustFuck/">도움이 될만한 사이트 - 이거 이름은 제가 지은게 아닙니다</a>
+        <br>
+        <br>
+        <input type="text" id="answerInput" placeholder="정답 입력">
+        <button onclick="checkAnswer()">확인</button>
+        <p id="resultMessage" class="message"></p>
+    </div>
+    <script>
+        let answer = "이제 콘솔을 어떻게 다루는지 알게 되셨습니다.";
+        let 정답 = "정답 쓰랬지 answer 쓰라고 안했다~";
+        
+        function checkAnswer() {
+            let userInput = document.getElementById("answerInput").value;
+            let resultMessage = document.getElementById("resultMessage");
+            
+            if (userInput === 정답) {
+                resultMessage.textContent = "정답입니다!";
+                hintMessage.innerHTML = "!+**++++.!+*++*----.!+*++*----.!+*+*++.!+*+*+++++.!++++++*--.!+++++*---..!+*+*.!+*-+*---.!+*-+*--.!+*++*---.!+*+*--.!+**+.!+*++*+.!+++++*----.!+**+++.!+**+++++.!+*++*----.!+**++++.!+*++*---.!+*-+*--.!+++++*----.!+**+++++.!+*+*+.!+++++*---.!+*-+*---.!+*+*++++.!+**+++.!++++*+++++.!+*+*-.!+*-+*---.!+**+++++.!+*+*.!+++++*---.";
+                resultMessage.className = "message success-message";
+            } else if (userInput === answer) {
+                resultMessage.textContent = "아니 answer 말고 정답을 입력하라구요..";
+                hintMessage.innerHTML = "땡";
+                resultMessage.className = "message alert-message";
+            } else {
+                resultMessage.textContent = "틀렸습니다. 다시 시도하세요.";
+                hintMessage.innerHTML = "땡";
+                resultMessage.className = "message alert-message";
+            }
+        }
+
+    </script>
+</body>
+</html>
